@@ -1,14 +1,14 @@
 val pairs = listOf(Pair(0, 1), Pair(0, 2), Pair(1, 2))  // permutations of 0, 1, 2, useful later
 
-/** Annoyingly, a class is necessary to get a file as a "resource" in Jetbrain's IDEA */
-class Input {
+/** Annoyingly, a class is necessary to get a file as a "resource" in Jetbrain's IDEA. Edit: an Object seems to work */
+object Input {
     fun input() = this::class.java.classLoader
         .getResource("input02.txt")
         .readText().trim().split("\n")
         .map { it.interpret() }
 }
 
-/** An interpretation of a "ixjxk" dimension string is a *sorted* list of dimensions */
+/** An interpretation of a "_x_x_" dimension string is a *sorted* list of dimensions */
 fun String.interpret(): List<Int> = this.split("x").map { it.toInt() }.sorted()
 
 /** Solution to part 1 */
@@ -33,9 +33,9 @@ fun checkHints() {
     println("Hint 2.2 (should be 14): ${dimensions2.requiredRibbon()}")
 }
 
-fun solvePart1() = Input().input().map { it.requiredPaper() }.sum()
+fun solvePart1() = Input.input().map { it.requiredPaper() }.sum()
 
-fun solvePart2() = Input().input().map { it.requiredRibbon() }.sum()
+fun solvePart2() = Input.input().map { it.requiredRibbon() }.sum()
 
 fun main() {
     checkHints()
