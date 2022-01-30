@@ -1,1 +1,2 @@
-java -jar $1.jar
+#!/usr/bin/sh
+java -jar jar/$1.jar
