@@ -1,4 +1,5 @@
 /** Second version of Day 2, to practice using classes and objects */
+import java.io.File
 
 class PresentBox {
     private val dimensions: List<Int>
@@ -9,13 +10,12 @@ class PresentBox {
     }
 
     companion object {
-        const val inputFile = "input02.txt"
+        const val inputFile = "input/input02.txt"
 
         val pairs = listOf(Pair(0, 1), Pair(0, 2), Pair(1, 2))
 
         /** Factory method to get a list of PresentBoxes */
-        fun getBoxes(): List<PresentBox> = this::class.java.classLoader
-            .getResource(inputFile)
+        fun getBoxes(): List<PresentBox> = File(inputFile)
             .readText().trim().split("\n")
             .map { PresentBox(it) }
     }

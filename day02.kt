@@ -1,9 +1,10 @@
-val pairs = listOf(Pair(0, 1), Pair(0, 2), Pair(1, 2))  // permutations of 0, 1, 2, useful later
+import java.io.File
+
+val pairs = listOf(Pair(0, 1), Pair(0, 2), Pair(1, 2)) // permutations of 0, 1, 2, useful later
 
 /** Annoyingly, a class is necessary to get a file as a "resource" in Jetbrain's IDEA. Edit: an Object seems to work */
 object Input {
-    fun input() = this::class.java.classLoader
-        .getResource("input02.txt")
+    fun input() = File("input/input02.txt")
         .readText().trim().split("\n")
         .map { it.interpret() }
 }
