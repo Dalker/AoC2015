@@ -4,7 +4,7 @@
 .SUFFIXES: .kt .jar
 KC     = kotlinc
 INC    = -include-runtime
-DAYS   = day01.jar day02.jar day02b.jar day03.jar day04.jar
+DAYS   = day01.jar day02.jar day02b.jar day03.jar day04.jar day05.jar
 JARDIR = jar
 SRCDIR  = src
 
