@@ -19,10 +19,37 @@ fun String.isNice(): Boolean =
 
 fun String.isNaughty(): Boolean = !this.isNice()
 
+fun String.hasRepeatingPair(): Boolean {
+    val pairs = hashMapOf<Pair<Char, Char>, Int>()
+    for (pair in this.slice(0 until this.lastIndex).zip(this.slice(1..this.lastIndex))) {
+        pairs.put(pair, if (pairs.contains(pair)) pairs[pair]!! + 1 else 1)
+    }
+    return !(
+        pairs.keys.filter { pairs[it]!! > 1 }.filter {
+            it.first != it.second || (it.first.toString() + it.second).let {
+                this.substringAfter(it).contains(it)
+            }
+        }
+        ).isEmpty()
+}
+
+fun String.hasTriplet(): Boolean =
+    !this.slice(0 until this.lastIndex - 1).filterIndexed {
+        idx, value -> this[idx + 2] == value
+    }.isEmpty()
+
+fun String.isReallyNice(): Boolean =
+    this.hasRepeatingPair() && this.hasTriplet()
+
 fun testPart1(): Boolean =
     "ugknbfddgicrmopn".isNice() && "aaa".isNice() &&
         "jchzalrnumimnmhp".isNaughty() && "haegwjzuvuyypxyu".isNaughty() &&
         "dvszwmarrgswjxmb".isNaughty()
+
+fun testPart2(): Boolean =
+    "qjhvhtzxzqqjkmpb".isReallyNice() && !"aaa".isReallyNice() &&
+        "xxyxx".isReallyNice() && !"uurcxstgmygtbstg".isReallyNice() &&
+        !"ieodomkazucvgmuy".isReallyNice()
 
 fun personalInput(): List<String> =
     File(INPUT_FILE).readLines()
@@ -30,7 +57,12 @@ fun personalInput(): List<String> =
 fun solvePart1(): Int =
     personalInput().filter { it.isNice() }.size
 
+fun solvePart2(): Int =
+    personalInput().filter { it.isReallyNice() }.size
+
 fun main() {
     println("test1: ${testPart1()}")
     println("part1: ${solvePart1()}")
+    println("test2: ${testPart2()}")
+    println("part2: ${solvePart2()}")
 }
