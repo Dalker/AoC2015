@@ -22,17 +22,6 @@ fun solve2(inputFile: String) {
     )
 }
 
-fun debugSolve(inputFile: String) {
-    for (line in File(inputFile).readLines()) {
-        print(
-            "\"".toRegex().findAll(line).count() +
-                """\\x[0-9a-f][0-9a-f]""".toRegex().findAll(line).count() * 3 +
-                """\\\\""".toRegex().findAll(line).count()
-        )
-        println(" : $line")
-    }
-}
-
 fun main() {
     solve(TEST_FILE)
     solve(INPUT_FILE)
