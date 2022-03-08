@@ -7,7 +7,7 @@ fun solve(inputFile: String) {
     println(
         File(inputFile).readText().let {
             "\"".toRegex().findAll(it).count() +
-                """\\x[0-9a-f][0-9a-f]""".toRegex().findAll(it).count() * 3 +
+                """\\x[0-9a-f]{2}""".toRegex().findAll(it).count() * 3 +
                 """\\\\""".toRegex().findAll(it).count()
         }
     )
