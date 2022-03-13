@@ -32,7 +32,7 @@ fun getCities(input: List<String>): List<String> {
 }
 
 /** permutations of List made from a Set */
-fun <T> permutations(elements: List<T>): List<List<T>> =
+tailrec fun <T> permutations(elements: List<T>): List<List<T>> =
     when (elements.size) {
         0 -> emptyList<List<T>>()
         1 -> listOf(listOf(elements.first()))
