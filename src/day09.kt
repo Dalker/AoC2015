@@ -48,10 +48,11 @@ fun solve(fname: String, second: Boolean = false) {
     val distances: Map<Pair<String, String>, Int> = parseDistances(input)
     val cities = getCities(input)
     // NB: half the permutations are enough, the others being the same reversed
-    val pathLengths = permutations(cities).let {
-        it
+    val pathLengths = permutations(cities) // .let {
         // it.chunked(it.size / 2).first()  <-- awkwardly gets off by 1 in part 2 !!??
-    }.map { path ->
+        //                                      even when increasing size of chunk!!?
+    // }
+    .map { path ->
         path.zipWithNext().map { pair -> distances.get(pair.sorted())!! }.sum()
     }
     println(if (second) pathLengths.maxOrNull() else pathLengths.minOrNull())
