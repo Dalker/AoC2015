@@ -13,6 +13,6 @@ A remark on Kotlin for each "day":
 - 05: maybe extension functions should be scope-restricted to avoid accidental misuse?
 - 06: during class inheritance, explicit use of the ~override~ keyword is mandatory
 - 07: testing for ~null~ can be chained with "elvis operators"
-- 08: beware when ~Regex~ ing expressions containing backslashes or double quotes, even in "raw" strings
+- 08: beware of ~Regex~ expressions containing backslashes or double quotes, even in "raw" strings
 - 09: /nullability/ checks matter, notably for map elements! (and can cause headaches when absent...)
 
