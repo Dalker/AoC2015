@@ -8,14 +8,14 @@ fun solve(inputFile: String) {
         "\"".toRegex().findAll(it).count() +
             """\\x[0-9a-f]{2}""".toRegex().findAll(it).count() * 3 +
             """\\\\""".toRegex().findAll(it).count()
-    }.let { println(it) }
+    }.also { c -> println("La solution est $c.") }
 }
 
 fun solve2(inputFile: String) {
     File(inputFile).readLines().map {
         2 + "\"".toRegex().findAll(it).count() +
             """\\""".toRegex().findAll(it).count()
-    }.sum().let { println(it) }
+    }.sum().also { println(it) }
 }
 
 fun main() {
