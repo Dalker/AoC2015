@@ -5,7 +5,8 @@
 KC     = kotlinc
 INC    = -include-runtime
 DAYS   = day01.jar day02.jar day02b.jar day03.jar day04.jar day05.jar day06.jar day07.jar day08.jar day09.jar\
-         day10.jar day11.jar day12.jar day13.jar day14.jar day15.jar day16.jar day17.jar day18.jar day19.jar
+         day10.jar day11.jar day12.jar day13.jar day14.jar day15.jar day16.jar day17.jar day18.jar day19.jar\
+		 day20.jar
 JARDIR = jar
 SRCDIR  = src
 
